@@ -1,354 +1,186 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Muhammad Rahfiqa Zainal, M.Kom — Dosen Bisnis Digital & Peneliti Keamanan Siber</title>
-<meta name="description" content="Portofolio Muhammad Rahfiqa Zainal, M.Kom: dosen Bisnis Digital UIN Bukittinggi, pengembang web dan machine learning, peneliti keamanan siber.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --ink:#0A1C28; --ink2:#12303F; --paper:#F3F6F9; --card:#FFFFFF; --text:#12232E; --muted:#566872;
-  --line:#D6DFE6; --accent:#1D5BFF; --accent-soft:#E4ECFF; --mint:#2DD4BF; --amber:#FFB020;
-}
-@media (prefers-color-scheme:dark){
-  :root{--paper:#0C1820; --card:#112430; --text:#E8F0F4; --muted:#9DB2BD; --line:#223846; --accent:#6C9CFF; --accent-soft:#16304F}
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
-body{font-family:"IBM Plex Sans",system-ui,sans-serif;background:var(--paper);color:var(--text);line-height:1.65;font-size:17px}
-a{color:var(--accent)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
-h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.05;letter-spacing:-.02em}
-.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
-
-/* Bilah atas */
-.bar{position:sticky;top:0;z-index:20;background:rgba(10,28,40,.92);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff1a}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.25rem;color:#fff;text-decoration:none;letter-spacing:-.02em}
-.logo b{color:var(--mint)}
-.bar nav{display:flex;gap:26px}
-.bar nav a{color:#B9CBD6;text-decoration:none;font-weight:500;font-size:.95rem;padding:6px 0;border-bottom:2px solid transparent}
-.bar nav a:hover,.bar nav a.on{color:#fff;border-bottom-color:var(--mint)}
-
-/* Hero */
-.hero{background:var(--ink);color:#fff;padding:72px 0 88px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff0d 1px,transparent 1px),linear-gradient(90deg,#ffffff0d 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(120deg,transparent 30%,#000 100%);-webkit-mask-image:linear-gradient(120deg,transparent 30%,#000 100%)}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
-.who{display:flex;align-items:center;gap:16px;margin-bottom:26px}
-.avatar{width:68px;height:68px;border-radius:50%;background:var(--ink2);border:2px solid var(--mint);display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.4rem;color:var(--mint);position:relative;overflow:hidden;flex:none}
-.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.chip{font-size:.9rem;color:#BFD0DA;display:flex;align-items:center;gap:8px}
-.chip::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 4px #2dd4bf33}
-.hero h1{font-size:clamp(2.7rem,6vw,4.8rem);font-weight:800}
-.hero .sub{margin-top:22px;font-size:1.2rem;color:#C5D5DE;max-width:34ch}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-.btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:600}
-.btn.main{background:var(--mint);color:#06231F}
-.btn.main:hover{background:#5BE6D5}
-.btn.ghost{color:#fff;border-color:#ffffff40;background:transparent}
-.btn.ghost:hover{border-color:#fff}
-
-/* Terminal */
-.term{background:#06121A;border:1px solid #ffffff1f;border-radius:12px;box-shadow:0 30px 60px -20px #000a;overflow:hidden}
-.term-head{display:flex;align-items:center;gap:7px;padding:12px 16px;background:#0D1F2A;border-bottom:1px solid #ffffff14}
-.term-head i{width:11px;height:11px;border-radius:50%;background:#ffffff30}
-.term-head span{margin-left:10px;font:.78rem "IBM Plex Mono",monospace;color:#8FA7B4}
-.log{padding:18px 18px 20px;font-family:"IBM Plex Mono",monospace;font-size:.82rem;line-height:2;color:#C9D6DD;min-height:268px;overflow-x:auto}
-.row{white-space:nowrap}
-.row .t{opacity:.45}
-.row .ok{color:var(--mint)}
-.row .bad{color:var(--amber)}
-.sum{padding:12px 18px;border-top:1px solid #ffffff14;font:.78rem "IBM Plex Mono",monospace;color:#8FA7B4;display:flex;justify-content:space-between;gap:12px}
-
-/* Bagian */
-section{padding:84px 0 0}
-section h2{font-size:clamp(2rem,4vw,2.9rem);font-weight:800;margin-bottom:12px}
-.intro-sub{color:var(--muted);max-width:52ch;margin-bottom:38px}
-
-/* Tentang */
-.about{display:grid;grid-template-columns:1.2fr 1fr;gap:56px}
-.about p{max-width:58ch}
-.about p+p{margin-top:16px}
-.focus{display:grid;gap:0;border-top:2px solid var(--text)}
-.focus div{padding:18px 0;border-bottom:1px solid var(--line)}
-.focus h3{font-size:1.25rem;margin-bottom:4px}
-.focus p{color:var(--muted);font-size:.97rem}
-
-/* Proyek */
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,transform .2s}
-.card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.card h3{font-size:1.3rem}
-.card p{color:var(--muted);font-size:.98rem;flex:1}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{font:.76rem "IBM Plex Mono",monospace;background:var(--accent-soft);color:var(--accent);padding:3px 9px;border-radius:5px}
-.card a.go{font-weight:600;text-decoration:none;margin-top:4px;width:fit-content}
-.card a.go:hover{text-decoration:underline}
-.card.feat{grid-column:1/-1;background:var(--ink);color:#fff;border-color:var(--ink);padding:36px;display:grid;grid-template-columns:1.3fr 1fr;gap:10px 40px}
-.card.feat h3{font-size:2rem}
-.card.feat p{color:#C0D1DB;font-size:1.05rem}
-.card.feat .tags span{background:#ffffff14;color:var(--mint)}
-.card.feat a.go{color:var(--mint)}
-.card.feat .l{display:flex;flex-direction:column;gap:12px}
-.card.feat .r{display:flex;flex-direction:column;justify-content:center;gap:14px;border-left:1px solid #ffffff22;padding-left:40px}
-.card.feat .r div{font-size:.95rem;color:#C0D1DB}
-.card.feat .r b{display:block;color:#fff;font-family:"Bricolage Grotesque",sans-serif;font-size:1.1rem}
-
-/* Keahlian */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
-.skills h3{font-size:1.15rem;padding-bottom:10px;margin-bottom:14px;border-bottom:2px solid var(--text)}
-.skills ul{list-style:none;display:grid;gap:8px}
-.skills li{padding-left:18px;position:relative}
-.skills li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:8px;border-radius:2px;background:var(--accent)}
-
-/* Riwayat */
-.tl{border-left:3px solid var(--line);margin-left:7px}
-.it{padding:0 0 32px 28px;position:relative}
-.it::before{content:"";position:absolute;left:-11px;top:6px;width:19px;height:19px;border-radius:50%;background:var(--paper);border:4px solid var(--accent)}
-.it h3{font-size:1.3rem}
-.it .w{color:var(--muted);font-size:.92rem;margin:3px 0 8px}
-.it p{max-width:60ch}
-
-/* Kontak */
-.contact{background:var(--ink);color:#fff;margin-top:96px;padding:80px 0}
-.contact h2{font-size:clamp(2.2rem,5vw,3.8rem);max-width:16ch}
-.contact p{color:#C0D1DB;max-width:48ch;margin:16px 0 28px}
-.mail{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:clamp(1.3rem,3.2vw,2rem);color:var(--mint);text-decoration:none;word-break:break-all}
-.mail:hover{text-decoration:underline}
-.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-footer{background:#06121A;color:#8FA7B4;padding:22px 0;font-size:.9rem}
-
-@media (max-width:900px){
-  .hero{padding:48px 0 64px}
-  .hero .wrap,.about,.card.feat{grid-template-columns:1fr}
-  .card.feat .r{border-left:0;padding-left:0;border-top:1px solid #ffffff22;padding-top:18px}
-  .grid,.skills{grid-template-columns:1fr}
-  .bar nav{gap:16px}
-  .bar nav a{font-size:.88rem}
-  .logo{font-size:1.1rem}
-}
-@media (max-width:520px){.bar nav a:nth-child(n+4){display:none}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card{transition:none}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fauzul Azhim | Portfolio</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      color: #172033;
+    }
+    header {
+      background: #0b1220;
+      color: white;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    header h2 { margin: 0; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+    .hero {
+      background: linear-gradient(135deg, #0b1220, #244a9b);
+      color: white;
+      text-align: center;
+      padding: 90px 20px;
+    }
+    .avatar {
+      background: #6388ff;
+      border: 5px solid white;
+      border-radius: 50%;
+      width: 115px;
+      height: 115px;
+      margin: auto;
+      display: grid;
+      place-items: center;
+      font-size: 38px;
+      font-weight: bold;
+    }
+    .hero h1 { font-size: 42px; margin-bottom: 10px; }
+    .hero p { color: #dbe5ff; }
+    .button {
+      display: inline-block;
+      background: #6388ff;
+      color: white;
+      padding: 12px 22px;
+      margin-top: 15px;
+      border-radius: 9px;
+      text-decoration: none;
+    }
+    section { padding: 55px 8%; }
+    section h2 { text-align: center; margin-bottom: 30px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 5px 20px #17203312;
+    }
+    .card h3 { color: #3158bd; }
+    .card p { line-height: 1.7; }
+    .contact { text-align: center; background: #e5ecff; }
+    footer {
+      background: #0b1220;
+      color: white;
+      text-align: center;
+      padding: 22px;
+    }
+    @media(max-width: 600px) {
+      header { gap: 15px; }
+      nav a { margin: 0 10px 0 0; }
+      .hero h1 { font-size: 32px; }
+    }
+  </style>
 </head>
 <body>
-
-<header class="bar">
-  <div class="wrap">
-    <a class="logo" href="#top">Rahfi<b>.</b></a>
-    <nav aria-label="Navigasi utama">
+  <header>
+    <h2>FA.</h2>
+    <nav>
       <a href="#tentang">Tentang</a>
-      <a href="#proyek">Proyek</a>
-      <a href="#keahlian">Keahlian</a>
-      <a href="#riwayat">Riwayat</a>
+      <a href="#pendidikan">Pendidikan</a>
+      <a href="#skill">Skill</a>
       <a href="#kontak">Kontak</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<div class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <div class="who">
-        <!-- EDIT: taruh foto Anda di folder yang sama dengan nama foto.jpg -->
-        <div class="avatar">MR<img src="foto.jpg" alt="Foto Muhammad Rahfiqa Zainal" onerror="this.remove()"></div>
-        <div class="chip">Terbuka untuk kolaborasi riset</div>
+  <div class="hero">
+    <div class="avatar">FA</div>
+    <h1>Fauzul Azhim</h1>
+    <p>Mahasiswa | Fotografi | Video Editing</p>
+    <p>UIN Syech Djamil Djambek Bukittinggi</p>
+    <a class="button" href="#tentang">Kenali Saya</a>
+  </div>
+
+  <section id="tentang">
+    <h2>Tentang Saya</h2>
+    <div class="card">
+      <p>
+        Halo! Saya Fauzul Azhim, seorang mahasiswa yang tertarik
+        pada teknologi, fotografi, pengolahan data, dan kreativitas
+        digital. Saya senang mempelajari hal baru dan mengembangkan
+        keterampilan untuk masa depan.
+      </p>
+      <p><b>Hobi:</b> Memasak dan bermain game.</p>
+      <p><b>Domisili:</b> Bukittinggi, Sumatera Barat.</p>
+    </div>
+  </section>
+
+  <section id="pendidikan">
+    <h2>Riwayat Pendidikan</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>SDIT Al-Azhar Panganak</h3>
+        <p>2012–2018</p>
       </div>
-      <h1>Muhammad Rahfiqa Zainal, M.Kom</h1>
-      <p class="sub">Dosen Bisnis Digital, pengembang web dan machine learning, peneliti keamanan siber.</p>
-      <div class="cta">
-        <a class="btn main" href="#proyek">Lihat proyek</a>
-        <a class="btn ghost" href="#kontak">Hubungi saya</a>
+      <div class="card">
+        <h3>SMPN 3 Bukittinggi</h3>
+        <p>2018–2021</p>
+      </div>
+      <div class="card">
+        <h3>SMAN 2 Bukittinggi</h3>
+        <p>2021–2024</p>
+      </div>
+      <div class="card">
+        <h3>UIN Syech Djamil Djambek</h3>
+        <p>2026–Sekarang</p>
       </div>
     </div>
+  </section>
 
-    <div>
-      <div class="term">
-        <div class="term-head"><i></i><i></i><i></i><span>waf-monitor · klasifikasi permintaan</span></div>
-        <div class="log" id="log" role="img" aria-label="Ilustrasi log permintaan web yang diklasifikasikan sebagai normal atau ancaman"></div>
-        <div class="sum"><span id="s1">normal: 0</span><span id="s2">ancaman: 0</span></div>
+  <section id="skill">
+    <h2>Keterampilan</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>📊 Microsoft Excel</h3>
+        <p>Pengolahan data.</p>
+      </div>
+      <div class="card">
+        <h3>📸 Fotografi</h3>
+        <p>Pengambilan gambar.</p>
+      </div>
+      <div class="card">
+        <h3>🎬 CapCut</h3>
+        <p>Editing video.</p>
+      </div>
+      <div class="card">
+        <h3>🎨 PowerPoint & Canva</h3>
+        <p>Presentasi dan desain.</p>
       </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<main>
-<div class="wrap">
+  <section id="kontak" class="contact">
+    <h2>Mari Terhubung</h2>
+    <p>Email: fauzulazhim@gmail.com</p>
+    <p>Instagram: @fauzulazhim05</p>
+    <a class="button"
+       href="mailto:fauzulazhim@gmail.com">
+       Kirim Email
+    </a>
+  </section>
 
-<section id="tentang">
-  <h2>Tentang</h2>
-  <p class="intro-sub">Saya mengajar dan membangun sistem yang membantu kampus dan UMKM bekerja lebih rapi, lebih cepat, dan lebih aman.</p>
-  <div class="about">
-    <div>
-      <p>Saya dosen Program Studi S1 Bisnis Digital, Fakultas Ekonomi dan Bisnis Islam, UIN Sjech M. Djamil Djambek Bukittinggi. Saya merancang mata kuliah, menyusun dokumen akademik, dan membuat aplikasi pendukung pembelajaran dan administrasi prodi.</p>
-      <p>Di luar kelas, saya meneliti prediksi ancaman siber dari log WAF dengan machine learning, dan mengerjakan asesmen kerentanan sistem informasi dengan izin pemilik sistem.</p>
-    </div>
-    <div class="focus">
-      <div><h3>Mengajar</h3><p>Desain mata kuliah dan materi belajar interaktif.</p></div>
-      <div><h3>Membangun</h3><p>Aplikasi web dan otomasi untuk kebutuhan kampus.</p></div>
-      <div><h3>Meneliti</h3><p>Machine learning untuk deteksi ancaman siber.</p></div>
-    </div>
-  </div>
-</section>
+  <footer>
+    © <span id="tahun"></span> Fauzul Azhim
+    | CV & Portfolio
+  </footer>
 
-<section id="proyek">
-  <h2>Proyek</h2>
-  <p class="intro-sub">Pekerjaan yang paling mewakili apa yang saya kerjakan sehari-hari.</p>
-  <div class="grid">
-
-    <article class="card feat">
-      <div class="l">
-        <h3>Prediksi ancaman siber dari log WAF</h3>
-        <p>Penelitian skripsi yang memakai machine learning untuk mengenali pola serangan pada log web application firewall.</p>
-        <div class="tags"><span>Python</span><span>Machine learning</span><span>WAF</span></div>
-        <a class="go" href="#">Lihat proyek</a>
-      </div>
-      <div class="r">
-        <div><b>Data</b>Log permintaan web dari WAF</div>
-        <div><b>Tujuan</b>Memprediksi ancaman sebelum berdampak</div>
-      </div>
-    </article>
-
-    <article class="card">
-      <h3>Aplikasi pengumpulan berkas skripsi</h3>
-      <p>Mahasiswa mengunggah berkas lewat form. Staf prodi menerima laporan siap cetak dalam format PDF dan Word.</p>
-      <div class="tags"><span>Apps Script</span><span>PDF</span><span>Word</span></div>
-      <a class="go" href="#">Lihat proyek</a>
-    </article>
-
-    <article class="card">
-      <h3>Aplikasi penjadwalan munaqasah dan kompre</h3>
-      <p>Penjadwalan ujian akhir mahasiswa yang berjalan di Google Apps Script dan tampil di halaman Blogger.</p>
-      <div class="tags"><span>Apps Script</span><span>Blogger</span></div>
-      <a class="go" href="#">Lihat proyek</a>
-    </article>
-
-    <article class="card">
-      <h3>WebBook CRM dan Foundation of IT</h3>
-      <p>Halaman belajar interaktif untuk mata kuliah Customer Relationship Management dan transformasi digital UMKM.</p>
-      <div class="tags"><span>HTML</span><span>CSS</span><span>Desain pembelajaran</span></div>
-      <a class="go" href="https://batangkayu.com">Buka batangkayu.com</a>
-    </article>
-
-    <article class="card">
-      <h3>E-learning UX/UI Design</h3>
-      <p>Sistem e-learning untuk mata kuliah UX/UI Design yang dibangun di atas Blogger.</p>
-      <div class="tags"><span>Blogger</span><span>UX/UI</span></div>
-      <a class="go" href="#">Lihat proyek</a>
-    </article>
-
-    <article class="card">
-      <h3>Asesmen kerentanan sistem kampus</h3>
-      <p>Pengujian keamanan eCampus dengan otorisasi resmi, dengan hasil dilaporkan kepada pengelola sistem.</p>
-      <div class="tags"><span>Keamanan siber</span><span>Pengujian berizin</span></div>
-    </article>
-
-  </div>
-</section>
-
-<section id="keahlian">
-  <h2>Keahlian</h2>
-  <p class="intro-sub">Alat yang saya pakai untuk mengubah ide menjadi sistem yang berjalan.</p>
-  <div class="skills">
-    <div><h3>Pengembangan</h3><ul><li>Python</li><li>PHP dan MySQL</li><li>JavaScript</li><li>Google Apps Script</li><li>Aplikasi mobile</li></ul></div>
-    <div><h3>Data dan keamanan</h3><ul><li>Machine learning</li><li>Analisis log</li><li>Asesmen kerentanan</li></ul></div>
-    <div><h3>Pendidikan</h3><ul><li>Desain mata kuliah</li><li>Dokumen akademik</li><li>Bisnis digital dan CRM</li><li>UX/UI</li></ul></div>
-  </div>
-</section>
-
-<section id="riwayat">
-  <h2>Riwayat</h2>
-  <p class="intro-sub">Pendidikan dan pengalaman kerja.</p>
-  <div class="tl">
-    <!-- EDIT: ganti tahun dan keterangan sesuai data Anda -->
-    <div class="it">
-      <h3>Dosen, S1 Bisnis Digital</h3>
-      <div class="w">UIN Sjech M. Djamil Djambek Bukittinggi · tahun mulai sampai sekarang</div>
-      <p>Mengajar, merancang mata kuliah, dan mengembangkan sistem pendukung prodi.</p>
-    </div>
-    <div class="it">
-      <h3>Magister Komputer (M.Kom)</h3>
-      <div class="w">Nama universitas · tahun lulus</div>
-      <p>Bidang studi dan topik tesis.</p>
-    </div>
-    <div class="it">
-      <h3>Sarjana</h3>
-      <div class="w">Nama universitas · tahun lulus</div>
-      <p>Program studi.</p>
-    </div>
-  </div>
-</section>
-
-</div>
-</main>
-
-<div class="contact" id="kontak">
-  <div class="wrap">
-    <h2>Mari bekerja sama</h2>
-    <p>Untuk kolaborasi riset, undangan mengajar, atau pembuatan aplikasi, kirim email dan saya balas secepatnya.</p>
-    <a class="mail" href="mailto:emailanda@example.com" id="mail">emailanda@example.com</a>
-    <div class="links">
-      <button class="btn main" id="copy" type="button">Salin email</button>
-      <a class="btn ghost" href="https://github.com/usernameanda">GitHub</a>
-      <a class="btn ghost" href="https://linkedin.com/in/usernameanda">LinkedIn</a>
-    </div>
-  </div>
-</div>
-
-<footer><div class="wrap">© <span id="yr">2026</span> Muhammad Rahfiqa Zainal · Bukittinggi, Sumatera Barat</div></footer>
-
-<script>
-(function(){
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  var copy = document.getElementById('copy');
-  copy.addEventListener('click', function(){
-    var m = document.getElementById('mail').textContent;
-    var done = function(){ copy.textContent = 'Tersalin'; setTimeout(function(){ copy.textContent = 'Salin email'; }, 1800); };
-    if (navigator.clipboard) navigator.clipboard.writeText(m).then(done); else done();
-  });
-
-  // Terminal log: diputar sekali saat halaman dibuka
-  var lines = [
-    ['GET  /login','normal','ok'],
-    ['GET  /jadwal?prodi=bisnis','normal','ok'],
-    ['GET  /cari?q=<script>','ancaman: XSS','bad'],
-    ['POST /unggah/berkas','normal','ok'],
-    ['GET  /../../etc/passwd','ancaman: path traversal','bad'],
-    ['GET  /nilai/kelas-a','normal','ok'],
-    ['POST /api/masuk','normal','ok']
-  ];
-  var box = document.getElementById('log'), s1 = document.getElementById('s1'), s2 = document.getElementById('s2');
-  var ok = 0, bad = 0;
-  function add(i){
-    var l = lines[i], r = document.createElement('div'); r.className = 'row';
-    var t = document.createElement('span'); t.className = 't'; t.textContent = '10:4' + i + ':0' + (i * 3 % 10) + '  ';
-    var m = document.createElement('span'); m.textContent = l[0] + '  ';
-    var s = document.createElement('span'); s.className = l[2]; s.textContent = l[1];
-    r.append(t, m, s); box.appendChild(r);
-    if (l[2] === 'ok') ok++; else bad++;
-    s1.textContent = 'normal: ' + ok; s2.textContent = 'ancaman: ' + bad;
-  }
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-    lines.forEach(function(_, i){ add(i); });
-  } else {
-    var n = 0, timer = setInterval(function(){ add(n++); if (n >= lines.length) clearInterval(timer); }, 650);
-  }
-
-  // Menu aktif saat menggulir
-  var links = document.querySelectorAll('.bar nav a');
-  if ('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if (e.isIntersecting) links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); });
-      });
-    }, {rootMargin:'-30% 0px -60% 0px'});
-    Array.prototype.forEach.call(links, function(a){ var s = document.querySelector(a.getAttribute('href')); if (s) io.observe(s); });
-  }
-})();
-</script>
+  <script>
+    document.getElementById("tahun").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
